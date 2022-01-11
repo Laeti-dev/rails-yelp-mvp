@@ -1,33 +1,16 @@
 <div class="container">
-  <nav class="navbar navbar-expand-lg fixed-top navbar-light bg-light">
-    <a class="navbar-brand" href="#">Yelp Copycat</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarText">
-      <ul class="navbar-nav mr-auto">
-        <li class="nav-item active">
-          <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Add restaurant</a>
-        </li>
-        <%# <li class="nav-item">
-          <a class="nav-link" href="#"></a>
-        </li> %>
-      </ul>
-      <%# <span class="navbar-text">
-        Navbar text with an inline element
-      </span> %>
+  <nav class="navbar fixed-top navbar-light bg-light">
+    <%= link_to "Yelp Copycat", restaurants_path, class: "navbar-brand" %>
+    <%# <%= link_to "Add a review", new_restaurant_review_path(restaurant), class: "btn btn-primary" %>
     </div>
   </nav>
   <div class="container-fluid mt-5">
     <% @restaurants.each do |restaurant| %>
-      <div class="card" style="width: 24rem;">
-        <img src="..." class="card-img-top" alt="...">
+      <div class="card my-3 shadow p-3 mb-5 bg-white rounded" style="width: 24rem;">
+        <img src="https://loremflickr.com/320/240/restaurant" class="card-img-top" alt="...">
         <div class="card-body">
-          <h5 class="card-title"><%= restaurant.name %></h5>
-          <p class="card-text"><%= restaurant.category %> cuisine.</p>
+          <h5 class="card-title"><%= link_to restaurant.name, restaurant_path(restaurant) %></h5>
+          <p class="card-text"><%= restaurant.category.capitalize %> cuisine.</p>
           <a href="#" class="btn btn-primary">Go somewhere</a>
         </div>
       </div>
