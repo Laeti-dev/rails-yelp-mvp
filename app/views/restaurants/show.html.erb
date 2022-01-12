@@ -1,17 +1,30 @@
 <div class="container-fluid">
   <nav class="navbar fixed-top navbar-light bg-light">
-    <%= link_to "Yelp Copycat", restaurants_path, class: "navbar-brand" %>
+    <%= link_to 'Yelp Copycat', restaurants_path, class: "navbar-brand" %>
+    <%= link_to 'Add a review', new_restaurant_review_path(@restaurant), class: "btn btn-light border rounded-pill shadow-sm" %>
   </nav>
   <div class="card mt-5" style="width: 40rem;">
   <%# <img src="https://loremflickr.com/320/240/food" class="card-img-top" alt="..."> %>
   <div class="card-body">
-    <h5 class="card-title"><%= @restaurant.name %></h5>
+    <h1 class="card-title"><%= @restaurant.name %></h1>
     <p class="card-text"> <%= @restaurant.category %> cuisine. </p>
     <p class="card-text"><%= @restaurant.address %></p>
     <p class="card-text"><%= @restaurant.phone_number %></p>
-  </div>
-  <div class="card-body">
-    <%= link_to ' Back', restaurants_path, class:"fas fa-arrow-circle-left" %>
+    <%= link_to ' Back', restaurants_path, class:"fas fa-arrow-circle-left mb-3" %>
+    <h2>Reviews</h2>
+    <ul class="list-group list-group-flush">
+      <% @restaurant.reviews.each do |review|  %>
+        <li class="list-group-item">
+          <% review.rating.to_i.times do %>
+            <span class="fas fa-star "></span>
+          <% end %>
+          <% review.blank_stars.to_i.times do %>
+            <span class="far fa-star"></span>
+          <% end %>
+          <%= review.content %>
+        </li>
+      <% end  %>
+    </ul>
   </div>
 </div>
 </div>
