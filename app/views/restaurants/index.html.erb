@@ -1,8 +1,7 @@
 <div class="container">
   <nav class="navbar fixed-top navbar-light bg-light">
     <%= link_to "Yelp Copycat", restaurants_path, class: "navbar-brand" %>
-    <%# <%= link_to "Add a review", new_restaurant_review_path(restaurant), class: "btn btn-primary" %>
-    </div>
+    <%= link_to "Add restaurant", new_restaurant_path, class: "btn btn-light border rounded-pill shadow-sm" %>
   </nav>
   <div class="container-fluid mt-5 row">
     <% @restaurants.each do |restaurant| %>
