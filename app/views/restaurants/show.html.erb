@@ -3,8 +3,8 @@
     <%= link_to 'Yelp Copycat', restaurants_path, class: "navbar-brand" %>
     <%= link_to 'Add a review', new_restaurant_review_path(@restaurant), class: "btn btn-light border rounded-pill shadow-sm" %>
   </nav>
-  <div class="card mt-5" style="width: 40rem;">
-  <%# <img src="https://loremflickr.com/320/240/food" class="card-img-top" alt="..."> %>
+  <div class="card mt-5 mx-auto" style="width: 40rem;">
+  <img src="https://picsum.photos/300/100" class="card-img-top" alt="Restaurant picture"> %>
   <div class="card-body">
     <h1 class="card-title"><%= @restaurant.name %></h1>
     <p class="card-text"> <%= @restaurant.category %> cuisine. </p>
